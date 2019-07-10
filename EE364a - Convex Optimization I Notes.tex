@@ -1,0 +1,112 @@
+\documentclass[]{article}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%opening
+\title{Notes for Stanford EE364a - Convex Optimization I}
+\author{Pranay Pasula}
+\begin{document}
+\maketitle
+
+\section*{Intro}
+Notes are from both course lectures and from the course textbook \textit{Convex Optimization} by Stephen Boyd and Lieven Vandenberghe. \\\\
+In addition, I added my own notes wherever I saw fit (e.g., p-norms in section Norm Ball and Norm Cone). \\\\ 
+$\forall x$ means "for every $x$." \\
+
+\section*{Lecture 2}
+
+\subsection*{Affine Set}
+A line through two points $x_{1}$ and $x_{2}$ can be represented by $$x=\theta x_{1} + (1-\theta) x_{2} \qquad \forall \theta \in \mathbb{R}. $$
+An affine set contains all points on the line connecting any two distinct points in the set. \\\\
+The solution set $\{x|Ax=b\}$ of a linear system of equations is an affine set. \\\\
+Conversely, any affine set is a solution set of some linear system of equations. \\
+
+\subsection*{Convex Set}
+A line segment connecting two points $x_{1}$ and $x_{2}$ can be represented by $$x=\theta x_{1} + (1-\theta) x_{2}, \qquad  0\leq \theta \leq 1.$$
+A convex set contains the line segment connecting any two points in the set:  $$x_{1}, x_{2} \in C \implies \theta x_{1} + (1-\theta) x_{2} \in C \qquad \forall \theta \in [0,1].$$
+So, an affine set is a convex set. \\\\
+Also, the null set is a convex set, as it is not non-convex. \\
+
+\subsection*{Convex Combination}
+Convex combination of set $S=\{x_{1},...,x_{k}\}$: $$x=\theta_{1} x_{1} + ... + \theta_{k} x_{k}, \quad  0 \leq \theta_{i} \leq 1, \enskip \theta_{i} \geq 0 \quad \forall i=1,...,k).$$
+Convex hull of S $conv S=\{x|x \text{ is convex combination of S }\}.$ \\\\
+In $\mathbb{R}^{n}$, $conv S =$ set of points within or on boundary of border line segments. \\\\
+Convex hull of a convex set is the convex set. \\\\
+Convex combinations differ from affine combinations only by the constraints above. \\
+
+\subsection*{Convex Cone}
+A set S is a cone if $\forall x \in S$ and $\forall \theta \geq 0$, we have $\theta x \in S.$ \\\\
+A set S is a convex cone if S is convex and a cone, which means $\forall x_{1}, x_{2} \in S$ and $\forall \theta \geq 0$, we have $$\theta_{1} x_{1} + (1-\theta) x_{2} \in S.$$
+Conic (non-neg) combination of $S=\{x_{1},..., x_{k}\}:$ $$x=\theta_1 x_{1} + ... + \theta_k x_{k}, \quad \theta_i \geq 0 \quad \forall i=1,..., k.$$
+Convex hull: (1) set of all conic combinations of points in S, (2) smallest convex cone that contains S.\\\\
+Convex cone is convex because the definition of a convex set is a subset of the definition of a convex cone (similar to why an affine set is a convex set). \\
+
+\subsection*{Hyperplane}
+A hyperplane is a set of points of the form $$\{x|a^{T} x = b\}$$ where $a \in \mathbb{R}^{n}$, $a \neq 0$, and $b \in \mathbb{R}$. \\\\
+This is simply the solution set to a non-trivial linear equation. \\\\
+$a^{T} x = b$ is equivalent to $a_{1} x_{1} + ... + a_{n} x_{n} = b$, so $a$ is the normal vector to the hyperplane. \\\\
+A hyperplane need not pass through the origin. \\ $\implies$ A hyperplane need not be a vector space. \\\\
+A hyperplane in $\mathbb{R}^n$ is an affine subspace with codimension $n$. \\ $\implies$ A hyperplane is affine and convex. \\
+
+\subsection*{Halfspace}
+A halfspace is a set of points of the form $$\{x|a^{T} x \square b \}$$
+where $a \in \mathbb{R}^{n}$, $a \neq 0$, and $b \in \mathbb{R}$ and where the square can be $<, >$ (open halfspace), $\leq,$ or $\geq$ (closed halfspace). \\\\
+A halfspace is not a vector space. \\\\
+A halfspace is convex but not affine. \\\\
+A hyperplane splits the surrounding space into two halfspaces. \\
+
+\subsection*{Euclidean Ball and Ellipsoid}
+A euclidean ball $B(x_{c}, r)$ is a set of points of the form $$B(x_{c}, r) = \{x \mid \| x - x_{c} \|_{2} \leq r\}.$$
+Alternatively, this can be written as $$B(x_{c}, r) = \{x_{c} + ru \mid \| u \|_{2} \leq 1\}.$$
+An ellipsoid is a set of the form $$ \mathcal{E} =  \{ x \mid (x - x_c)^{T} P^{-1} (x - x_{c}) \leq 1 \}$$
+with $P \in \boldsymbol{S}^{n}_{++}$ (i.e., P is symmetric positive definite). \\\\
+Alternatively, this can be written as $$ \mathcal{E} = \{x_{c} + Au \mid \| u \|_{2} < 1 \}$$
+where $A=P^{1/2} \implies A \in \boldsymbol{S}^{n}_{++}.$ \\\\ 
+The lengths of the semi-major axes of the ellipsoid are equal to square roots of the eigenvalues of P. \\\\
+A ball is an ellipsoid with $P=r^{2}I.$
+\\\\
+When A is positive semidefinite but singular, the ellipsoid is called degenerate, and the affine dimension equals the rank of A.
+\\
+$\implies$ Degenerate ellipsoids are convex. \\ 
+
+\subsection*{Norm Ball and Norm Cone}
+A norm is a function $ \| \cdot \| : \mathbb{R}^{n}
+\rightarrow [0,\infty)$ that satisfies
+\begin{itemize}
+	\item (Non-negativity) $\| x \| \geq 0$ and $0$ iff $x=0$
+	\item (Absolute homogeneity) $\| tx \| = |t|\|x\|$
+	\item (Triangle inequality) $\|x+y\| \leq \|x\| + \|y\|$ 
+\end{itemize}
+$\forall x,y \in \mathbb{R}^{n}$ and $t \in R$. \\\\
+We treat $\|\cdot\|$ as a general (unspecified) norm. Only $\|\cdot\|_{\text{symb}}$ is a specific norm. \\\\
+The absolute value function is an L1 norm over $\mathbb{R}$ (or $\mathbb{C}$). \\\\
+For $p \geq 1 $, the $p$-norm of a vector $x \in \mathbb{R}^n$ is $$\|x\|_{p} = \left(\sum_{i=1}^{n} |x_{i}|\right)^{1/p}.$$
+A norm ball of radius $r$ and center $x_{c}$ is the set of points $$\{x \mid \|x-x_{c}\| \leq r \}.$$
+The norm cone $C$ associated with $\|\cdot\|$ is the set of points $$C=\{(x,t) \mid \|x\| \leq t \}.$$
+Unit norm ball in $R^{n}$ is cross section (level set at $t=1$) of corresponding norm cone. \\\\ 
+All norm balls and norm cones are convex. \\
+
+\subsection*{Polyhedra}
+A polyhedron $\mathcal{P}$ is defined as the solution set of a finite number of linear inequalities and equalities $$\mathcal{P} = \{x \mid Ax \preceq b, \enskip Cx = d\}.$$
+$\implies$ a polyhedron is an intersection of halfspaces and hyperplanes. \\\\
+$\preceq$ can be another component-wise inequality. \\\\
+Affine sets, rays, line segments, and halfspaces are all polyhedra. \\\\
+Polyhedra are convex. \\\\
+A bounded polyhedron is sometimes called a polytope. \\\\
+The nonnegative orthant $\mathbb{R}^{n}_{+}$ is $$\mathbb{R}^{n}_{+} = \{x \in \mathbb{R}^{n} \mid x \succeq 0\}.$$
+$\mathbb{R}^{n}_{+}$ is a polyhedron and a cone, sometimes called a polyhedral cone. \\
+
+\subsection*{Positive Semidefinite Cone}
+$\boldsymbol{S}^{n}$, the set of all symmetric $n$ x $n$ matrices is convex, affine, and linear. \\\\
+$\boldsymbol{S}^{n}_{+} = \{X \in S \mid X \succeq 0\}$, the set of all positive semidefinite $n$ x $n$ matrices is a convex cone. \\
+$\bullet$ Note, here and for matrix inequalities in general, $\succeq$ denotes definiteness. \\\\
+$\boldsymbol{S}^{n}_{++}$ also a convex cone. \\\\
+Can use quadratic forms of $X,Y \in$ either $\boldsymbol{S}^{n}_{+}$ or $\boldsymbol{S}^{n}_{++}$ that each set is a convex cone. \\
+
+
+
+
+
+	
+\end{document}
