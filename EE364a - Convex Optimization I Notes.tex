@@ -10,68 +10,74 @@
 \maketitle
 
 \section*{Intro}
-Notes are from both course lectures and from the course textbook \textit{Convex Optimization} by Stephen Boyd and Lieven Vandenberghe. \\\\
-In addition, I added my own notes wherever I saw fit (e.g., p-norms in section Norm Ball and Norm Cone). \\\\ 
-$\forall x$ means "for every $x$." \\
-
-\section*{Lecture 2}
+Notes are from both course lectures and from the course textbook \textit{Convex Optimization} by Stephen Boyd and Lieven Vandenberghe. 
+\\\\
+In addition, I added my own notes wherever I saw fit (e.g., p-norms in section Norm Ball and Norm Cone). 
+\\\\ 
+$\forall x$ means "for every $x$." 
+\\\\
+Sorry for any typos.
+\\
+\section*{Lecture 2 (Chapter 2)}
 
 \subsection*{Affine Set}
 A line through two points $x_{1}$ and $x_{2}$ can be represented by $$x=\theta x_{1} + (1-\theta) x_{2} \qquad \forall \theta \in \mathbb{R}. $$
-An affine set contains all points on the line connecting any two distinct points in the set. \\\\
+An \textbf{affine set} contains all points on the line connecting any two distinct points in the set. \\\\
 The solution set $\{x|Ax=b\}$ of a linear system of equations is an affine set. \\\\
 Conversely, any affine set is a solution set of some linear system of equations. \\
 
 \subsection*{Convex Set}
 A line segment connecting two points $x_{1}$ and $x_{2}$ can be represented by $$x=\theta x_{1} + (1-\theta) x_{2}, \qquad  0\leq \theta \leq 1.$$
-A convex set contains the line segment connecting any two points in the set:  $$x_{1}, x_{2} \in C \implies \theta x_{1} + (1-\theta) x_{2} \in C \qquad \forall \theta \in [0,1].$$
+A \textbf{convex set} contains the line segment connecting any two points in the set:  $$x_{1}, x_{2} \in C \implies \theta x_{1} + (1-\theta) x_{2} \in C \qquad \forall \theta \in [0,1].$$
 So, an affine set is a convex set. \\\\
 Also, the null set is a convex set, as it is not non-convex. \\
 
 \subsection*{Convex Combination}
-Convex combination of set $S=\{x_{1},...,x_{k}\}$: $$x=\theta_{1} x_{1} + ... + \theta_{k} x_{k}, \quad  0 \leq \theta_{i} \leq 1, \enskip \theta_{i} \geq 0 \quad \forall i=1,...,k).$$
-Convex hull of S $conv S=\{x|x \text{ is convex combination of S }\}.$ \\\\
-In $\mathbb{R}^{n}$, $conv S =$ set of points within or on boundary of border line segments. \\\\
-Convex hull of a convex set is the convex set. \\\\
+\textbf{Convex combination} of set $S=\{x_{1},...,x_{k}\}$: $$x=\theta_{1} x_{1} + ... + \theta_{k} x_{k}, \quad  \sum_{i=1}^{k} \theta_{i}=1 , \enskip \theta_{i} \geq 0 \quad \forall i=1,...,k).$$
+\textbf{Convex hull} of S, $conv \ S=\{x|x \text{ is convex combination of S }\}.$ \\\\
+In $\mathbb{R}^{n}$, $conv \ S =$ set of points within or on boundary of border line segments. \\\\
+Convex hull of a convex set is the convex set itself. \\\\
 Convex combinations differ from affine combinations only by the constraints above. \\
 
 \subsection*{Convex Cone}
-A set S is a cone if $\forall x \in S$ and $\forall \theta \geq 0$, we have $\theta x \in S.$ \\\\
-A set S is a convex cone if S is convex and a cone, which means $\forall x_{1}, x_{2} \in S$ and $\forall \theta \geq 0$, we have $$\theta_{1} x_{1} + (1-\theta) x_{2} \in S.$$
-Conic (non-neg) combination of $S=\{x_{1},..., x_{k}\}:$ $$x=\theta_1 x_{1} + ... + \theta_k x_{k}, \quad \theta_i \geq 0 \quad \forall i=1,..., k.$$
-Convex hull: (1) set of all conic combinations of points in S, (2) smallest convex cone that contains S.\\\\
+A set C is a \textbf{cone} if $\forall x \in C$ and $\forall \theta \geq 0$, we have $\theta x \in C.$ \\\\
+A set C is a convex cone if C is convex and a cone, which means $\forall x_{1}, x_{2} \in C$ and $\forall \theta \geq 0$, we have $$\theta_{1} x_{1} + (1-\theta) x_{2} \in C.$$
+\textbf{Conic (non-neg) combination} of $C=\{x_{1},..., x_{k}\}:$ $$x=\theta_1 x_{1} + ... + \theta_k x_{k}, \quad \theta_i \geq 0 \quad \forall i=1,..., k.$$
+\textbf{Conic hull}: (1) set of all conic combinations of points in C, (2) smallest convex cone that contains C.\\
+$\bullet$ Here, C is any set, not just a cone or convex cone. \\\\
 Convex cone is convex because the definition of a convex set is a subset of the definition of a convex cone (similar to why an affine set is a convex set). \\
 
 \subsection*{Hyperplane}
-A hyperplane is a set of points of the form $$\{x|a^{T} x = b\}$$ where $a \in \mathbb{R}^{n}$, $a \neq 0$, and $b \in \mathbb{R}$. \\\\
+A \textbf{hyperplane} is a set of points of the form $$\{x|a^{T} x = b\}$$ where $a \in \mathbb{R}^{n}$, $a \neq 0$, and $b \in \mathbb{R}$. \\\\
 This is simply the solution set to a non-trivial linear equation. \\\\
 $a^{T} x = b$ is equivalent to $a_{1} x_{1} + ... + a_{n} x_{n} = b$, so $a$ is the normal vector to the hyperplane. \\\\
+$a$ points in the positive direction. \\\\
 A hyperplane need not pass through the origin. \\ $\implies$ A hyperplane need not be a vector space. \\\\
 A hyperplane in $\mathbb{R}^n$ is an affine subspace with codimension $n$. \\ $\implies$ A hyperplane is affine and convex. \\
 
 \subsection*{Halfspace}
-A halfspace is a set of points of the form $$\{x|a^{T} x \square b \}$$
+A \textbf{halfspace} is a set of points of the form $$\{x|a^{T} x \square b \}$$
 where $a \in \mathbb{R}^{n}$, $a \neq 0$, and $b \in \mathbb{R}$ and where the square can be $<, >$ (open halfspace), $\leq,$ or $\geq$ (closed halfspace). \\\\
 A halfspace is not a vector space. \\\\
 A halfspace is convex but not affine. \\\\
 A hyperplane splits the surrounding space into two halfspaces. \\
 
 \subsection*{Euclidean Ball and Ellipsoid}
-A euclidean ball $B(x_{c}, r)$ is a set of points of the form $$B(x_{c}, r) = \{x \mid \| x - x_{c} \|_{2} \leq r\}.$$
+A \textbf{euclidean ball} $B(x_{c}, r)$ is a set of points of the form $$B(x_{c}, r) = \{x \mid \| x - x_{c} \|_{2} \leq r\}.$$
 Alternatively, this can be written as $$B(x_{c}, r) = \{x_{c} + ru \mid \| u \|_{2} \leq 1\}.$$
-An ellipsoid is a set of the form $$ \mathcal{E} =  \{ x \mid (x - x_c)^{T} P^{-1} (x - x_{c}) \leq 1 \}$$
+An \textbf{ellipsoid} is a set of the form $$ \mathcal{E} =  \{ x \mid (x - x_c)^{T} P^{-1} (x - x_{c}) \leq 1 \}$$
 with $P \in \boldsymbol{S}^{n}_{++}$ (i.e., P is symmetric positive definite). \\\\
 Alternatively, this can be written as $$ \mathcal{E} = \{x_{c} + Au \mid \| u \|_{2} < 1 \}$$
 where $A=P^{1/2} \implies A \in \boldsymbol{S}^{n}_{++}.$ \\\\ 
 The lengths of the semi-major axes of the ellipsoid are equal to square roots of the eigenvalues of P. \\\\
 A ball is an ellipsoid with $P=r^{2}I.$
 \\\\
-When A is positive semidefinite but singular, the ellipsoid is called degenerate, and the affine dimension equals the rank of A.
+When A is positive semidefinite but singular, the ellipsoid is called \textbf{degenerate}, and the affine dimension equals the rank of A.
 \\
 $\implies$ Degenerate ellipsoids are convex. \\ 
 
 \subsection*{Norm Ball and Norm Cone}
-A norm is a function $ \| \cdot \| : \mathbb{R}^{n}
+A \textbf{norm} is a function $ \| \cdot \| : \mathbb{R}^{n}
 \rightarrow [0,\infty)$ that satisfies
 \begin{itemize}
 	\item (Non-negativity) $\| x \| \geq 0$ and $0$ iff $x=0$
@@ -80,22 +86,22 @@ A norm is a function $ \| \cdot \| : \mathbb{R}^{n}
 \end{itemize}
 $\forall x,y \in \mathbb{R}^{n}$ and $t \in R$. \\\\
 We treat $\|\cdot\|$ as a general (unspecified) norm. Only $\|\cdot\|_{\text{symb}}$ is a specific norm. \\\\
-The absolute value function is an L1 norm over $\mathbb{R}$ (or $\mathbb{C}$). \\\\
-For $p \geq 1 $, the $p$-norm of a vector $x \in \mathbb{R}^n$ is $$\|x\|_{p} = \left(\sum_{i=1}^{n} |x_{i}|\right)^{1/p}.$$
-A norm ball of radius $r$ and center $x_{c}$ is the set of points $$\{x \mid \|x-x_{c}\| \leq r \}.$$
-The norm cone $C$ associated with $\|\cdot\|$ is the set of points $$C=\{(x,t) \mid \|x\| \leq t \}.$$
-Unit norm ball in $R^{n}$ is cross section (level set at $t=1$) of corresponding norm cone. \\\\ 
+The \textbf{absolute value} function is an L1 norm over $\mathbb{R}$ (or $\mathbb{C}$). \\\\
+For $p \geq 1 $, the \textbf{$p$-norm} of a vector $x \in \mathbb{R}^n$ is $$\|x\|_{p} = \left(\sum_{i=1}^{n} |x_{i}|^{p}\right)^{1/p}.$$
+A \textbf{norm ball} of radius $r$ and center $x_{c}$ is the set of points $$\{x \mid \|x-x_{c}\| \leq r \}.$$
+The \textbf{norm cone} $C$ associated with $\|\cdot\|$ is the set of points $$C=\{(x,t) \mid \|x\| \leq t \}.$$
+\textbf{Unit norm ball} in $R^{n}$ is cross section (\textbf{level set} at $t=1$) of corresponding norm cone. \\\\ 
 All norm balls and norm cones are convex. \\
 
 \subsection*{Polyhedra}
-A polyhedron $\mathcal{P}$ is defined as the solution set of a finite number of linear inequalities and equalities $$\mathcal{P} = \{x \mid Ax \preceq b, \enskip Cx = d\}.$$
+A \textbf{polyhedron} $\mathcal{P}$ is defined as the solution set of a finite number of linear inequalities and equalities $$\mathcal{P} = \{x \mid Ax \preceq b, \enskip Cx = d\}.$$
 $\implies$ a polyhedron is an intersection of halfspaces and hyperplanes. \\\\
 $\preceq$ can be another component-wise inequality. \\\\
 Affine sets, rays, line segments, and halfspaces are all polyhedra. \\\\
 Polyhedra are convex. \\\\
-A bounded polyhedron is sometimes called a polytope. \\\\
-The nonnegative orthant $\mathbb{R}^{n}_{+}$ is $$\mathbb{R}^{n}_{+} = \{x \in \mathbb{R}^{n} \mid x \succeq 0\}.$$
-$\mathbb{R}^{n}_{+}$ is a polyhedron and a cone, sometimes called a polyhedral cone. \\
+A bounded polyhedron is sometimes called a \textbf{polytope}. \\\\
+The \textbf{nonnegative orthant} $\mathbb{R}^{n}_{+}$ is $$\mathbb{R}^{n}_{+} = \{x \in \mathbb{R}^{n} \mid x \succeq 0\}.$$
+$\mathbb{R}^{n}_{+}$ is a polyhedron and a cone, sometimes called a \textbf{polyhedral cone}. \\
 
 \subsection*{Positive Semidefinite Cone}
 $\boldsymbol{S}^{n}$, the set of all symmetric $n$ x $n$ matrices is convex, affine, and linear. \\\\
@@ -104,9 +110,127 @@ $\bullet$ Note, here and for matrix inequalities in general, $\succeq$ denotes d
 $\boldsymbol{S}^{n}_{++}$ also a convex cone. \\\\
 Can use quadratic forms of $X,Y \in$ either $\boldsymbol{S}^{n}_{+}$ or $\boldsymbol{S}^{n}_{++}$ that each set is a convex cone. \\
 
+\subsection*{Operations That Preserve Convexity}
+Some ways to determine convexity of a set:
+\begin{enumerate}
+	\item Use the definition of convexity (often difficult to do).
+	\item Show that the set is obtained from convexity-preserving operations on simple convex sets:
+	\begin{itemize}
+		\item Intersection
+		\item Affine functions
+		\item Perspective functions
+		\item Linear-fractional functions
+	\end{itemize}
+	\item "Programming approach": For random $x_{1}, x_{2}$ in the set, test if $\theta_{1} x_{1} + (1-\theta) x_{2}$ is in the set. \\
+	-- This is just to check for non-convexity. \\
+\end{enumerate}
+The \textbf{intersection} of any number of convex sets is convex. \\\\
+If a mapping $f:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ is an \textbf{affine function} ($f(x)=Ax+b,$ where $ A\in\mathbb{R}^{m \text{x} n}, b\in\mathbb{R}^{m}$) then
+\begin{itemize}
+	\item The image of a convex set under $f$ is convex: $$S \subseteq \mathbb{R}^{n} \text{ is convex } \implies f(S)=\{f(x)\mid x\in S\} \text{ is convex.}$$
+	\item The inverse image $f^{-1}(C)$ of a convex set under $f$ is convex: $$C \subseteq \mathbb{R}^{m} \text{ is convex }\implies f^{-1}(C)=\{x\in\mathbb{R}^{n}\mid f(x)\in C\} \text{ is convex. }$$
+	\item The converses of these are not necessarily true. \\
+\end{itemize}
+Examples of sets that can be shown to be convex through affine functions:
+\begin{itemize}
+	\item Scaling, translation, rotation, projection
+	\item Solution set of a \textbf{linear matrix inequality}: $\{x\mid x_{1}A_{1} + ... + x_{m}A_{m} \preceq B\}$, where $A_{i}, B \in \boldsymbol{S}^{p}$. \\
+	-- Here, $\preceq$ means $\lambda_{min}(LHS) \leq \lambda_{min}(B)$.
+	\item Hyperbolic cone \\
+\end{itemize}
+A \textbf{perspective function} $P: \mathbb{R}^{n+1} \rightarrow \mathbb{R}^{n}$ has the form $$P(x,t)=\frac{x}{t}, \quad \text{where } \textbf{dom } P=\{(x,t) \mid t > 0 \}.$$
+P divides elements $x_{i},...,x_{n}$ by $x_{n+1}$ and removes $x_{n+1}$ from the vector. \\\\
+A generalization of the perspective function is the \textbf{linear-fractional function} $f : \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}$: $$f(x) = \frac{Ax+b}{c^{T}x+d}, \quad \text{where } \textbf{dom } f = \{x \mid c^{T}x+d>0 \}.$$
+If the image of a line segment under a function remains a line segment, then the function preserves convexity.\\
+
+\subsection*{Generalized Inequalities}
+A set $K \subseteq \mathbb{R}^{n}$ is a \textbf{proper cone} iff
+\begin{itemize}
+	\item K is closed (roughly, the entire boundary exists)
+	\item K has nonempty interior (roughly, the interior is the set of points not on the boundary)
+	\item K is pointed (contains no line) \\
+\end{itemize}
+Examples of proper cones: nonneg orthant, positive semidefinite cone (i.e., the set of positive semidefinite matrices). \\\\
+A \textbf{generalized inequality} parametrized by proper cone $K$: $$x \preceq_{K} y \ \Leftrightarrow \  y-x \in K \quad \text{ and } \quad x \prec y \ \Leftrightarrow \ y-x \in \textbf{int } K.$$
+Examples: component-wise inequality ($K=\mathbb{R}^{n}_{+}$), matrix-wise inequality ($K=\boldsymbol{S}^{n}_{+}$). \\\\
+Many properties of $\preceq_{K}$ are similar to $\leq$ on $\mathbb{R}$. For example, $$u \preceq_{K} v, \ x \preceq_{K} y \implies u+x \preceq_{K} v+y.$$
+Some are not: in general, $\preceq_{K}$ is not a \textbf{linear ordering} (possible for $x \npreceq_{K} y$ and $y \npreceq x$.) \\
+
+\subsection*{Minimum and Minimal Elements}
+$x \in S$ is \textbf{the minimum element} of S wrt $\preceq_{K}$ if $$y \in S \implies x \preceq_{k} y.$$
+$x \in S$ is \textbf{a minimal element} of S wrt $\preceq_{K}$ if $$y \in S, \ y \preceq_{k} x \implies y=x.$$
+Unambiguous ordering is defined only for $x,y \in \{K \cup -K\}$, so for regions outside this set, the ordering is ambiguous. \\\\
+Roughly, minimum if all other points are more, minimal if no other points are less.
+
+\subsection*{Separating Hyperplane Theorem}
+If $C, D$ are disjoint convex sets, then $\exists a\neq 0, \ b$ s.t. $$ a^{T}x \leq b \quad \forall x\in C \qquad \text{and} \qquad a^{T}x \geq b \quad \forall x\in D.$$
+Hyperplane separates space into two halfspaces, each containing either $C$ or $D$. \\\\
+Strict separation requires closed $C$ and singleton $D$. \\ 
+
+\subsection*{Supporting Hyperplane Theorem}
+Suppose we have a point $x_{0}$ on the boundary of a set $C$. If $a\neq 0$ and $a^{T}x\leq a^{T}x_{0} \ \forall x\in C$, then $$\{x \mid a^{T}x=a^{T}x_{0}\}$$ is the \textbf{supporting hyperplane} to set $C$ at boundary point $x_{0}$. \\\\
+I.e., hyperplane separates $x_{0}$ and $C$. \\\\
+Hyperplane is tangent to $C$ at $x_{0}$. \\\\
+\textbf{Supporting hyperplane theorem}: If $C$ is convex and nonempty, then $\exists$ a supporting hyperplane $\forall$ boundary point $x_{0}$. \\
+
+\subsection*{Dual Cones and Generalized Inequalities}
+\subsubsection*{Dual Cones}
+The \textbf{dual cone} $K^{*}$ of a cone K is the set $$\{y \mid x^{T}y \geq 0 \quad \forall x \in K\}.$$
+Equivalently, it is the set of $y$ s.t. $y$ is a normal vector to a supporting hyperplane of $K$ at the origin 0. \\
+-I.e., the set of all vectors within 90 degrees of all vectors in K. \\\\
+$K^{*}$ is always a convex cone, even if $K$ is not convex. \\\\
+$K^{*}$ of a subspace $V \subseteq \mathbb{R}^{n}$ (which is a cone) is the orthogonal complement of $V$. $$K^{*} = \{y \mid v^{T}y=0 \quad \forall v \in V \}.$$
+Examples
+\begin{itemize}
+	\item The nonneg orthant is \textbf{self-dual}.
+	\item The PSD cone is self-dual. The \textbf{standard inner product of two matrices} $X, Y$ is $$\textbf{Tr}(XY) = \sum_{i=1}^{n} \sum_{j=1}^{n} X_{ij}Y_{ij}.$$
+	\item The 2-norm cone is self-dual.
+	\item For the 1-norm cone, the dual cone is the infinity-norm cone. \\
+\end{itemize}
+Properties
+\begin{itemize}
+	\item $K*$ is convex and closed.
+	\item If $K1 \subseteq K2$, then $K2^{*} \subseteq K1^{*}.$
+	\item If $K$ has a nonempty interior, then $K^{*}$ is pointed.
+	\item If the closure of $K$ is pointed, then $K^{*}$ has a nonempty interior.
+	\item $K^{**}$ is the closure of the convex hull of $K$ (So, if $K$ is convex, then $K^{**}=K$). 
+\end{itemize}
+This properties imply that if $K$ is a proper cone, then $K^{*}$ is a proper cone. \\
+
+\subsubsection*{Dual Generalized Inequalities}
+If $K$ is a proper cone, it induces a generalized inequality $\preceq_{K}$, and $K*$ is a proper cone.\\\\
+So, $K^{*}$ induces a generalized inequality $\preceq_{K^{*}}$, which we refer to as the \textbf{dual of} $\preceq_{K}$. \\\\
+Some properties relating a generalized inequality and its dual are
+\begin{itemize}
+	\item $x \preceq_{K} y \quad \Longleftrightarrow \quad \lambda^{T}x \preceq_{K} \lambda^{T}y \quad \forall \lambda \succeq_{K^{*}} 0.$
+	\item Similar for strict generalized inequalities
+	\item Similar for flipped $K$ and $K^{*}$ generalized inequalities (because $K=K^{**}$ when $K$ is a proper cone).\\
+\end{itemize}
+
+\subsection*{Minimum and Minimal Elements via Dual Inequalities}
+\subsubsection*{Dual Characterization of Minimum Element}
+$x$ is \textbf{the minimum element} of S wrt $\preceq_{K}$ if and only if for all $\lambda \succ_{K^{*}} 0$, $x$ is the unique minimizer for $\lambda^{T} z$ over all $z \in S$. 
+\\\\
+Equivalently, the hyperplane $\{z \mid \lambda^{T}(z-x)=0\}$ is a \textbf{strictly supporting hyperplane} at $x$. 
+\\
+-Strictly supporting at $x$ means that it intersects $S$ at only $x$. 
+\\\\
+S does not have to be convex. 
+\\
+
+\subsubsection*{Dual Characterization of Minimal Elements}
+$x$ is \textbf{a minimal element} of S wrt $\preceq_{K}$ if $x$ minimizes $\lambda^{T}z$ over all $z \in S$ for some $\lambda \succ_{K} 0$. 
+\\
+-I.e., for some $\lambda \succ_{K} 0$, the (biased) hyperplane orthogonal to $\lambda$ is tangent to $S$. 
+\\\\
+S does not have to be convex.
+\\\\
+If $S$ is convex, then for every minimal element $x_{i}$ of $S$, there exists a nonzero $\lambda_{i} \succeq_{k} 0$ s.t. each $x_{i}$ minimizes $\lambda_{i}^{T}z$ over $z \in S.$
+\\
+-Generally not true if $S$ is not convex.
+\\
+\subsection*{Optimal Production Frontier}
+\textbf{Efficient} (\textbf{Pareto optimal}) solutions are minimal wrt $\boldsymbol{R}^{n}_{+}$.
 
 
-
-
-	
 \end{document}
