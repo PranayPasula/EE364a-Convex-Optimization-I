@@ -10,7 +10,7 @@
 \maketitle
 
 \section*{Intro}
-Notes are from both course lectures and from the course textbook \textit{Convex Optimization} by Stephen Boyd and Lieven Vandenberghe. 
+Notes are from both the course lectures and the course textbook \textit{Convex Optimization} by Stephen Boyd and Lieven Vandenberghe. 
 \\\\
 In addition, I added my own notes wherever I saw fit (e.g., p-norms in section Norm Ball and Norm Cone). 
 \\\\ 
@@ -53,7 +53,14 @@ This is simply the solution set to a non-trivial linear equation. \\\\
 $a^{T} x = b$ is equivalent to $a_{1} x_{1} + ... + a_{n} x_{n} = b$, so $a$ is the normal vector to the hyperplane. \\\\
 $a$ points in the positive direction. \\\\
 A hyperplane need not pass through the origin. \\ $\implies$ A hyperplane need not be a vector space. \\\\
-A hyperplane in $\mathbb{R}^n$ is an affine subspace with codimension $n$. \\ $\implies$ A hyperplane is affine and convex. \\
+A hyperplane in $\mathbb{R}^n$ is an \textbf{affine subspace} with dimension $n-1$ and \textbf{codimension} $1$.
+\\
+$\bullet$ An affine subspace is a vector subspace that has been shifted by a fixed vector.
+\\
+$\bullet$ No vector is denoted as the origin.
+\\
+$\bullet$ The codimension of an affine subspace W of a vector space V is $$codim(W)=dim(V)-dim(W).$$
+$\implies$ A hyperplane is affine and convex. \\
 
 \subsection*{Halfspace}
 A \textbf{halfspace} is a set of points of the form $$\{x|a^{T} x \square b \}$$
