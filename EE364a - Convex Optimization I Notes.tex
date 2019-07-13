@@ -2,15 +2,25 @@
 \usepackage[margin=1.25in]{geometry}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{tcolorbox}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rn}{\mathbb{R}^{n}}
+\newcommand{\Rpp}{\boldsymbol{R}_{++}}
+\newcommand{\Rmn}{\mathbb{R}^{m\text{x}n}}
+\newcommand{\norm}[1]{\| #1 \|}
+\newcommand{\Sn}{\boldsymbol{S}^{n}}
+\newcommand{\Snp}{\boldsymbol{S}^{n}_{+}}
+\newcommand{\Snpp}{\boldsymbol{S}^{n}_{++}}
 
 %opening
-\title{Notes for Stanford EE364a - Convex Optimization I}
+\title{Notes for Stanford EE364a -- Convex Optimization I}
 \author{Pranay Pasula}
 \begin{document}
 \maketitle
 
 \section*{Intro}
-Notes are from both the course lectures and the course textbook \textit{Convex Optimization} by Stephen Boyd and Lieven Vandenberghe. 
+Notes are from both the course lectures and the course textbook \textit{Convex Optimization} by Stephen Boyd and Lieven Vandenberghe.
 \\\\
 In addition, I added my own notes wherever I saw fit (e.g., p-norms in section Norm Ball and Norm Cone). 
 \\\\ 
@@ -18,7 +28,7 @@ $\forall x$ means "for every $x$."
 \\\\
 Sorry for any typos.
 \\
-\section*{Lecture 2 (Chapter 2)}
+\section*{Lecture 2 (Chapter 2 -- Convex Sets)}
 
 \subsection*{Affine Set}
 A line through two points $x_{1}$ and $x_{2}$ can be represented by $$x=\theta x_{1} + (1-\theta) x_{2} \qquad \forall \theta \in \mathbb{R}. $$
@@ -237,7 +247,84 @@ If $S$ is convex, then for every minimal element $x_{i}$ of $S$, there exists a 
 -Generally not true if $S$ is not convex.
 \\
 \subsection*{Optimal Production Frontier}
-\textbf{Efficient} (\textbf{Pareto optimal}) solutions are minimal wrt $\boldsymbol{R}^{n}_{+}$.
+\textbf{Efficient} (\textbf{Pareto optimal}) solutions are minimal wrt $\boldsymbol{R}^{n}_{+}$.\\
+
+\section*{Lecture 3 (Chapter 3 -- Convex Functions)}
+\subsection*{Definition}
+A function $f:\mathbb{R}^{n} : \mathbb{R}$ is \textbf{convex} if its domain is a convex set and $$f(\theta x+(1-\theta)y) \leq \theta f(x) + (1-\theta) f(y)$$ for every $x,y \in \textbf{dom}\: f$, $0 \leq \theta \leq 1.$
+\\\\
+Or, any chord of the graph lies above the graph (except at the end points).
+\\\\
+$f$ is \textbf{strictly convex} if the inequality is strict and it holds for every $x,y \in \textbf{dom}\:f,\ x \neq y,\ 0 < \theta < 1.$
+\\\\
+$f$ is \textbf{concave} if $-f$ is convex.
+\\
+\subsection*{Examples on R}
+Convex:
+\begin{itemize}
+	\item Affine: $ax+b$ on $\mathbb{R}$ for any $a,b \in \mathbb{R}$
+	\\
+	--Equality holds
+	\item Exponential: $e^{ax}$ for any $a\in\mathbb{R}$
+	\item Powers: $x^{p}$ on $\boldsymbol{R}_{++}$, for any $p\leq 0$ or $p\geq 1$
+	\item Absolute powers: $|x|^{p}$ on $\mathbb{R}$, for any $p\in\mathbb{R}$
+	\item Negative log entropy: $x\text{log}x$ on $\boldsymbol{R}_{++}$
+	\\
+\end{itemize}
+Concave:
+\begin{itemize}
+	\item Affine
+	\item Powers, $p\in[0,1]$
+	\item Logarithm on $\Rpp$
+	\\
+\end{itemize}
+
+\subsection*{Examples on $\Rn$ and $\Rmn$}
+$\Rn$:
+\begin{itemize}
+	\item Affine functions: $f(x)=a^{T}x+b$
+	\item Norms ($p\geq 1$ for p-norms)
+	\\
+	$\bullet$ $p < 1$ of interest for sparsity
+\end{itemize}
+$\Rmn$:
+\begin{itemize}
+	\item Affine functions: $f(X)=\textbf{Tr}(A^{T}X) + b$
+	\\
+	$\bullet$ $\textbf{Tr}(A^{T}X)$ = \textbf{standard inner product} of $A$ and $X$.
+	\item \textbf{Spectral norm}: $\norm{X}_{\sigma} = \sigma_{max}X = (\lambda_{max}(X^{T}X))^{1/2}$\\
+\end{itemize}
+
+\subsection*{Restriction of a Convex Function to a Line\\}
+\begin{tcolorbox}
+\textbf{Theorem:} $f:\Rn\rightarrow\R$ is convex if and only if $g:\R\rightarrow\R$ $$g(t)=f(x+tv), \qquad \textbf{dom}\:g=\{t|x+tv\in\textbf{dom}\:f\}$$ is convex for any $x\in\textbf{dom}\:f,\ v\in\Rn,$ and $t\in\textbf{dom}\ g.$
+\end{tcolorbox}
+$\implies$ can check convexity of function on $\Rn$ by checking convexity of functions of $\R$.
+\\\\
+\begin{tcolorbox}
+\textbf{Super interesting example}: $f:\Rn\rightarrow\R$ with $f(X)=$ log det$(X)$
+\\\\
+So, domain of $f$ restricted to $\Snpp$.
+\\\\
+To show that $f$ is convex (or concave), we must show that for any $X\in\Snpp$ and $V\in\Sn$ $$ g(t) = \text{log det}(X+tV)$$ is convex (or concave) in $t$.
+\begin{align*}
+g(t) &= \text{log det}(X+tV) \\
+&= \text{log det}(X^{1/2}(I+tX^{-1/2}VX^{-1/2})X^{1/2}) \\
+&= \text{log det}(X(I+tX^{-1/2}VX^{-1/2})) \\
+&= \text{log det}(X) + \text{log det}(I+tX^{-1/2}VX^{-1/2}) \\
+&= \text{log det}(X) + \text{log det}(Q^{T}Q+tQ^{T}\Lambda Q) \quad\text{(by orthogonal diagonalization)} \\
+&= \text{log det}(X) + \text{log det}(Q^{T}(I+t\Lambda)Q) \\
+&= \text{log det}(X) + \text{log det}(Q^{T}Q(I+t\Lambda)) \\
+&= \text{log det}(X) + \text{log det}(I+t\Lambda) \\
+&= \text{log det}(X) + \sum_{i=1}^{n} \text{log}(1+t\lambda_{i})
+\end{align*}
+where $\lambda_{i} \geq 0$ because they are the eigenvalues of $X^{-1/2}VX^{-1/2}$, which is symmetric PSD (any matrix of the form $B^{T}AB$ is PSD).
+\\\\
+$\text{log}(1+t\lambda_{i})$ is concave, and the sum of concave functions is itself concave. $\text{log det}(X) \in \Rpp$, so $g$ is concave in $t$, which implies that $f$ is concave.
+\end{tcolorbox}
+
+
+
 
 
 \end{document}
