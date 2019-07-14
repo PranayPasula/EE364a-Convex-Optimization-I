@@ -1,0 +1,84 @@
+\documentclass[]{article}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rn}{\mathbb{R}^{n}}
+\newcommand{\Rpp}{\boldsymbol{R}_{++}}
+\newcommand{\Rmn}{\mathbb{R}^{m\text{x}n}}
+\newcommand{\norm}[1]{\| #1 \|}
+\newcommand{\Sn}{\boldsymbol{S}^{n}}
+\newcommand{\Snp}{\boldsymbol{S}^{n}_{+}}
+\newcommand{\Snpp}{\boldsymbol{S}^{n}_{++}}
+
+\newcounter{q}
+\newcommand{\qnum}{\addtocounter{q}{1}\theq.\quad}
+
+%opening
+\title{Review Questions for EE364a -- Convex Optimization I at Stanford}
+\author{Pranay Pasula}
+
+\begin{document}
+\maketitle
+
+\section*{Chapter 2 -- Convex Sets}
+
+\subsubsection*{Affine Set}
+\qnum What is an affine set? \\
+\qnum Describe an affine set using set notation. \\
+\qnum What are some examples of affine sets? \\
+\qnum Is any affine set the solution to a linear system of equations?
+
+\subsubsection*{Convex Set}
+\qnum What is a convex set? \\
+\qnum Describe a convex set using set notation. \\
+\qnum Are affine sets also convex sets? Why or why not? \\
+\qnum Are null sets also convex sets? Why or why not? \\
+\qnum What do convex sets look like in $\Rn$? \\
+\qnum How does the definition of convexity apply to a set $S \nsubseteq \Rn$? Say, for $S = \Snpp$? \\
+\qnum What is the interior of a set? \\
+\qnum Give examples of convex sets with an interior equal to the empty set.
+
+\subsubsection*{Convex Combination}
+\qnum What is a convex combination? \\
+\qnum What is a convex hull? \\
+\qnum What is the convex hull of a convex set? \\
+\qnum How do convex combinations differ from affine combinations?
+
+\subsubsection*{Convex Cone}
+\qnum What is a cone? \\
+\qnum What is a convex cone? \\
+\qnum Why is a convex cone considered to be convex even though the constraints on weights are different than what is required by the definition of convexity? \\
+\qnum What is a conic combination? \\
+\qnum What is a conic hull?
+\qnum What convex cone that contains a set is bigger than the conic hull of that set?
+
+\subsubsection*{Hyperplane}
+\qnum What is a hyperplane? \\
+\qnum Describe a hyperplane using set notation. \\
+\qnum Describe how the variables in the definition of a hyperplane determine the hyperplane. \\
+\qnum Is a hyperplane a vector space? \\
+\qnum Is a hyperplane a subspace? \\
+\qnum Is a hyperplane an affine subspace? \\
+\qnum How does the definition of an affine subspace differ from the definition of a vector space? How do the relate? \\
+\qnum Does every affine subspace contain a vector space? \\
+\qnum Does every vector space contain an affine subspace? \\
+\qnum What is the dimension of a hyperplane? \\
+\qnum What is the codimension of a hyperplane? \\
+\qnum What is meant by codimension in this context? When does is the codimension defined in this context? \\
+\qnum Is a hyperplane convex? Affine? 
+
+\subsubsection*{Halfspace}
+\qnum What is a halfspace?\\
+\qnum If a halfspace contains the origin, is it a vector space?\\
+\qnum Is a halfspace convex?\\
+\qnum Is a halfspace affine?\\
+\qnum How does the definition of a halfspace relate to the definition of a hyperplane?
+
+\subsubsection*{Euclidean Ball and Ellipsoid}
+
+
+
+
+\end{document}
