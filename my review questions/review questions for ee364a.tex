@@ -21,7 +21,7 @@
 \newcommand{\qnum}{\addtocounter{q}{1}\theq.\quad}
 
 %opening
-\title{Review Questions for EE364a -- Convex Optimization I at Stanford}
+\title{Review Questions for EE364a -- Convex Optimization I}
 \author{Pranay Pasula}
 
 \begin{document}
@@ -178,6 +178,7 @@ Most of the questions here are simple and test for only a basic understanding. S
 \item What is a proper cone?
 \item Give examples of sets that are proper cones.
 \item Give examples of sets that are cones but not proper cones.
+\item Are all convex cones also proper cones?
 \item Are all proper cones convex?
 \item Is a line in $\Rn$ a proper cone? A ray?
 \item Is a vector space a proper cone? An affine subspace?
@@ -201,6 +202,77 @@ Most of the questions here are simple and test for only a basic understanding. S
 \item If all other points in a set are more than a point $x$ by $\preceq_{K}$, then is $x$ a minimum element? A minimal element? Both?
 \item If no other point in a set is less than a point $x$ by $\preceq_{K}$, then is $x$ a minimum element? A minimal element? Both?
 \end{enumerate}
+
+\subsection*{Separating Hyperplane Theorem}
+
+\begin{enumerate}[resume*]
+\item State the separating hyperplane theorem.
+\item What is required for strict separation?
+\item Give an example of two disjoint convex sets for which there does not exist a strict separating hyperplane.
+\end{enumerate}
+
+\subsection*{Supporting Hyperplane Theorem}
+
+\begin{enumerate}[resume*]
+\item What is a supporting hyperplane?
+\item Can nonconvex sets have a supporting hyperplane?
+\item What sets are separated by a supporting hyperplane?
+\item Geometrically, in Euclidean space, what is the supporting hyperplane at a particular point?
+\item State the supporting hyperplane theorem.
+\item Do all convex sets have at least one supporting hyperplane?
+\end{enumerate}
+
+\subsection*{Dual Cones and Generalized Inequalities}
+
+\begin{enumerate}[resume*]
+\item What is a dual cone?
+\item What is the maximum angle between any vector in a cone and any vector in its corresponding dual? Minimum angle?
+\item How does the dual cone relate to supporting hyperplanes?
+\item When is a dual cone nonconvex?
+\item When is a cone nonconvex?
+\item What is the dual cone of a vector space? Why is the dual cone of a vector space defined?
+\item What are some examples of cones and their duals?
+\item What are some examples of self-dual cones?
+\item What are some examples of cones that are not self-dual?
+\item Is $K^{*}$ always closed?
+\item If $K_{1} \subseteq K_{2}$, then what is the relationship between $K_{1}^{*}$ and $K_{2}^{*}$?
+\item Is $K^{*}$ always pointed?
+\item When does the $(K^{*})^{*}=K$? Otherwise, what does $(K^{*})^{*}$ equal?
+\item If K is a proper cone, then is $K^{*}$ always a proper cone? If not, give a counterexample.
+\end{enumerate}
+
+\subsubsection*{Dual Generalized Inequality}
+
+\begin{enumerate}[resume*]
+\item What is the dual of a generalized inequality?
+\item What is a property relating a generalized inequality and its dual?
+\item How does this property change when we set $K=K^{*}$?
+\end{enumerate}
+
+\subsubsection*{Minimum and Minimal Elements via Dual Inequalities}
+
+\begin{enumerate}[resume*]
+\item State the dual characterization of the minimum element of a set wrt a generalized inequality.
+\item How does this relate to supporting hyperplanes?
+\item Does the set have to be convex? If not, give an example of a nonconvex set for which the dual characterization of the minimum element holds.
+\item State the dual characterization of minimal elements of a set wrt a generalized inequality.
+\item How does this relate to supporting hyperplanes?
+\item Does the set have to be convex? If not, give an example of a nonconvex set for which the dual characterization of the minimum element holds.
+\item If the set is convex, what is implied about the minimal elements of the set (note: minimal, not minimal wrt a generalized equality)?
+\end{enumerate}
+
+\subsubsection*{Optimal Production Frontier}
+
+\begin{enumerate}[resume*]
+\item Describe the production--possibility frontier.
+\item Describe its regions.
+\item What solutions are considered efficient?
+\item What is another name for an efficient solution?\\
+\end{enumerate}
+
+\section*{Chapter 3 -- Convex Functions}
+
+\subsubsection*{Definition}
 
 
 \end{document}
