@@ -2,10 +2,15 @@
 \usepackage[margin=1.25in]{geometry}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{calc}
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=-1mm, leftmargin=!}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rn}{\mathbb{R}^{n}}
+\newcommand{\Rnp}{\boldsymbol{R}^{n}_{+}}
 \newcommand{\Rpp}{\boldsymbol{R}_{++}}
+\newcommand{\Rnpp}{\boldsymbol{R}^{n}_{++}}
 \newcommand{\Rmn}{\mathbb{R}^{m\text{x}n}}
 \newcommand{\norm}[1]{\| #1 \|}
 \newcommand{\Sn}{\boldsymbol{S}^{n}}
@@ -22,63 +27,180 @@
 \begin{document}
 \maketitle
 
+\section*{Intro}
+From my experience, asking yourself questions and answering them is one of the best ways to test how well you understand something. 
+\\\\
+Most of the questions here are simple and test for only a basic understanding. Some questions require some insight, but almost none of them should be "challenging."
+\\
 \section*{Chapter 2 -- Convex Sets}
 
 \subsubsection*{Affine Set}
-\qnum What is an affine set? \\
-\qnum Describe an affine set using set notation. \\
-\qnum What are some examples of affine sets? \\
-\qnum Is any affine set the solution to a linear system of equations?
+
+\begin{enumerate}
+ \item What is an affine set?
+ \item Describe an affine set using set notation.
+ \item What are some examples of affine sets?
+ \item Is any affine set the solution to a linear system of equations?
+\end{enumerate}
 
 \subsubsection*{Convex Set}
-\qnum What is a convex set? \\
-\qnum Describe a convex set using set notation. \\
-\qnum Are affine sets also convex sets? Why or why not? \\
-\qnum Are null sets also convex sets? Why or why not? \\
-\qnum What do convex sets look like in $\Rn$? \\
-\qnum How does the definition of convexity apply to a set $S \nsubseteq \Rn$? Say, for $S = \Snpp$? \\
-\qnum What is the interior of a set? \\
-\qnum Give examples of convex sets with an interior equal to the empty set.
+
+\begin{enumerate}[resume*]
+\item What is a convex set? 
+\item Describe a convex set using set notation. 
+\item Are affine sets also convex sets? Why or why not? 
+\item Are null sets also convex sets? Why or why not? 
+\item What do convex sets look like in $\Rn$? 
+\item How does the definition of convexity apply to a set $S \nsubseteq \Rn$? Say, for $S = \Snpp$? 
+\item What is the interior of a set? 
+\item Give examples of convex sets with an interior equal to the empty set.
+\end{enumerate}
 
 \subsubsection*{Convex Combination}
-\qnum What is a convex combination? \\
-\qnum What is a convex hull? \\
-\qnum What is the convex hull of a convex set? \\
-\qnum How do convex combinations differ from affine combinations?
+
+\begin{enumerate}[resume*]
+\item What is a convex combination? 
+\item What is a convex hull? 
+\item What is the convex hull of a convex set? 
+\item How do convex combinations differ from affine combinations?
+\end{enumerate}
 
 \subsubsection*{Convex Cone}
-\qnum What is a cone? \\
-\qnum What is a convex cone? \\
-\qnum Why is a convex cone considered to be convex even though the constraints on weights are different than what is required by the definition of convexity? \\
-\qnum What is a conic combination? \\
-\qnum What is a conic hull?
-\qnum What convex cone that contains a set is bigger than the conic hull of that set?
+
+\begin{enumerate}[resume*]
+\item What is a cone? 
+\item What is a convex cone? 
+\item Give an example of a cone that is not convex.
+\item Why is a convex cone considered to be convex even though the constraints on weights are different than what is required by the definition of convexity? 
+\item What is a conic combination? 
+\item What is a conic hull? 
+\item What convex cone that contains a set $S$ is bigger than the conic hull of $S$?
+\end{enumerate}
 
 \subsubsection*{Hyperplane}
-\qnum What is a hyperplane? \\
-\qnum Describe a hyperplane using set notation. \\
-\qnum Describe how the variables in the definition of a hyperplane determine the hyperplane. \\
-\qnum Is a hyperplane a vector space? \\
-\qnum Is a hyperplane a subspace? \\
-\qnum Is a hyperplane an affine subspace? \\
-\qnum How does the definition of an affine subspace differ from the definition of a vector space? How do the relate? \\
-\qnum Does every affine subspace contain a vector space? \\
-\qnum Does every vector space contain an affine subspace? \\
-\qnum What is the dimension of a hyperplane? \\
-\qnum What is the codimension of a hyperplane? \\
-\qnum What is meant by codimension in this context? When does is the codimension defined in this context? \\
-\qnum Is a hyperplane convex? Affine? 
+
+\begin{enumerate}[resume*]
+\item What is a hyperplane? 
+\item Describe a hyperplane using set notation. 
+\item Describe how the variables in the definition of a hyperplane determine the hyperplane. 
+\item Is a hyperplane a vector space? 
+\item Is a hyperplane a subspace? 
+\item Is a hyperplane an affine subspace? 
+\item How does the definition of an affine subspace differ from the definition of a vector space? How do the relate? 
+\item Does every affine subspace contain a vector space? 
+\item Does every vector space contain an affine subspace? 
+\item What is the dimension of a hyperplane? 
+\item What is the codimension of a hyperplane? 
+\item What is meant by codimension in this context? When does is the codimension defined in this context? 
+\item Is a hyperplane convex? Affine? 
+\end{enumerate}
 
 \subsubsection*{Halfspace}
-\qnum What is a halfspace?\\
-\qnum If a halfspace contains the origin, is it a vector space?\\
-\qnum Is a halfspace convex?\\
-\qnum Is a halfspace affine?\\
-\qnum How does the definition of a halfspace relate to the definition of a hyperplane?
+
+\begin{enumerate}[resume*]
+\item What is a halfspace?
+\item If a halfspace contains the origin, is it a vector space?
+\item Is a halfspace convex?
+\item Is a halfspace affine?
+\item How does the definition of a halfspace relate to the definition of a hyperplane?
+\end{enumerate}
 
 \subsubsection*{Euclidean Ball and Ellipsoid}
 
+\begin{enumerate}[resume*]
+\item What is a euclidean ball?
+\item Give two representations of a euclidean ball using set notation.
+\item What is an ellipsoid?
+\item Give two representations of an ellipsoid using set notation.
+\item If P (in the first representation) is positive definite, what does this imply about A (in the second representation)?
+\item What are the lengths of the semi-major axes of the ellipsoid equal to?
+\item What if P is not positive definite?
+\item What is the affine dimension of such an ellipsoid? \textbf{I'm unsure why Boyd's book makes the claim it does regarding this. It doesn't seem like a degenerate ellipsoid has an affine dimension because the there doesn't exist a translation that makes the set a vector space.}
+\item Which of the following are not convex: euclidean ball, non-degenerate ellipsoid, degenerate ellipsoid?
+\end{enumerate}
 
+\subsubsection*{Norm Ball and Norm Cone}
+
+\begin{enumerate}[resume*]
+\item What is a norm?
+\item What is a p-norm?
+\item Describe the absolute value function as a norm.
+\item What is a norm ball?
+\item What is a norm cone?
+\item How do the norm balls of a particular norm relate to the norm cone of the same norm?
+\item What is the unit norm ball?
+\item What is the $p$-"norm?"
+\item What does the unit $p$-"norm" ball look like for $0 < p < 1$? For $p=0?$
+\item Are norm balls convex?
+\item Are norm cones convex?
+\item Why are $p$-"norms" with $0\leq p < 1$ not true norms?
+\item When are such norms useful?
+\end{enumerate}
+
+\subsubsection*{Polyhedra}
+
+\begin{enumerate}[resume*]
+\item What is a polyhedra in set notation? What does this imply about polyhedra in terms of other convex sets?
+\item Are rays polyhedra? Are line segments?
+\item Are polyhedra also convex?
+\item What is a bounded polyhedron sometimes called?
+\item What is the nonnegative orthant? Is it a polyhedron? Is it a cone?
+\item What is the positive orthant? Is it a polyhedron? Is it a cone?
+\item What are polyhedrons that are also cones sometimes called?
+\end{enumerate}
+
+\subsubsection*{Positive Semidefinite Cone}
+	
+\begin{enumerate}[resume*]
+\item What is the positive semidefinite cone?
+\item Is $\Snp$ convex? Affine? Linear?
+\item Is $\Snpp$ also a convex cone?
+\end{enumerate}
+
+\subsubsection*{Operations that Preserve Convexity}
+
+\begin{enumerate}[resume*]
+\item What are two ways to show that a set is convex?
+\item What is an easy way to show that a complicated set is not convex?
+\item What are pros and cons of each of these approaches?
+\item Name four convexity-preserving types of operations.
+\item Explicity describe each of these operations.
+\item Is the inverse image of a convex set under f also convex? Is the converse true?
+\item State examples of types of operations that can be shown to be convex through affine functions.
+\item What is a linear matrix inequality? Is its solution set convex?
+\item What is the perspective function on a vector?
+\item What is the generalization of the perspective function called? Describe it.
+\end{enumerate}
+
+\subsubsection*{Generalized Inequalities}
+
+\begin{enumerate}[resume*]
+\item What is a proper cone?
+\item Give examples of sets that are proper cones.
+\item Give examples of sets that are cones but not proper cones.
+\item Are all proper cones convex?
+\item Is a line in $\Rn$ a proper cone? A ray?
+\item Is a vector space a proper cone? An affine subspace?
+\item Is a hyperplane a proper cone? A halfspace? A polyhedron?
+\item Is $\Sn$ a proper cone? $\Snp$? $\Snpp$?
+\item Is $\Rn$ a proper cone? $\Rnp$? $\Rnpp$?
+\item What is a generalized inequality?
+\item What does the generalized inequality imply when $K=\Rnp$? When $K=\Snp$?
+\item What is the interior of $\Snp$ called?
+\item Name a property of $\preceq_{K}$ that has an analog on $\R$.
+\item Name a property of $\preceq_{K}$ that does not have an analog on $\R$.
+\end{enumerate}
+
+\subsubsection*{Minimum and Minimal Elements}
+
+\begin{enumerate}[resume*]
+\item What is a minimum element of a set wrt a generalized inequality? Is it unique? Does one always exist?
+\item What is a minimal element of a set wrt a generalized inequality? Is it unique? Does one always exist?
+\item When does every minimum equal every minimal element?
+\item In what region is the ordering wrt a proper cone $K$ unambiguous? In what region is it ambiguous?
+\item If all other points in a set are more than a point $x$ by $\preceq_{K}$, then is $x$ a minimum element? A minimal element? Both?
+\item If no other point in a set is less than a point $x$ by $\preceq_{K}$, then is $x$ a minimum element? A minimal element? Both?
+\end{enumerate}
 
 
 \end{document}
