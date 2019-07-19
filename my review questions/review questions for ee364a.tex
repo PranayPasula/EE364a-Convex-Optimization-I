@@ -273,6 +273,67 @@ Most of the questions here are simple and test for only a basic understanding. S
 \section*{Chapter 3 -- Convex Functions}
 
 \subsubsection*{Definition}
+\begin{enumerate}
+\item What is the definition of a convex function?
+\item How is this extended to an arbitrary number of variables?
+\item Graphically, what is the definition of a convex function?
+\item What is the definition of a concave function?
+\item What is the definition of a strictly convex function?
+\end{enumerate}
+
+\subsubsection*{Examples on $\R$}
+\begin{enumerate}[resume*]
+\item State whether the following is convex, concave, or both for particular ranges of variables on non-empty subset(s) of $\R$, and state these ranges and subset(s):
+\begin{itemize}
+	\item Affine: $ax+b$
+	\item Exponential: $e^{ax}$
+	\item Power: $x^{a}$
+	\item Power of abs val: $|x|^{a}$
+	\item Negative entropy: $x\:$log$\:x$
+	\item Logarithm: log$\:x$
+\end{itemize}
+\item What can be said about a function if it is both convex and concave? Explain why.
+\end{enumerate}
+
+\subsubsection*{Examples on $\Rn$ and $\Rmn$}
+\begin{enumerate}[resume*]
+\item Are all norms convex? Show why or why not.
+\item What is the definition of a $p$-norm? For what values of $p$ is this valid? What are some uses of $p$-"norms" with invalid values of $p$?
+\item What is the general form of an affine function on $\Rmn$? What is the non-constant term? What is special about this term? What does it equal?
+\item What is the spectral norm of a matrix? For what matrices is this function not convex?
+\end{enumerate}
+
+\subsubsection*{Restriction of a Convex Function to a Line}
+\begin{enumerate}[resume*]
+\item State the theorem relating the convexity of a function $f: \Rn \rightarrow \R$ to the convexity of $f$ when $f$ is restricted to an arbitrary line passing through $\textbf{dom}\: f$.
+\item (\textit{Note: this requires work}) For $f: \Snpp \rightarrow \R$, is $\text{log}\:\text{det}\:X$ convex, concave, both, or neither?.
+\item If you have no clue whether a function is convex or concave, what is usually the best thing to do first?
+\end{enumerate}
+\textit{Note: Restriction to a line is one of the best ways to show the convexity of a function.}
+
+\subsubsection*{Extended-Value Extension}
+\begin{enumerate}[resume*]
+\item What is the extended-value extension for convex functions?
+\item Why is it useful?
+\item What does $\tilde{f}(\theta x + (1-\theta) y) \leq \theta \tilde{f}(x) + (1-\theta)\tilde{f}(y)$ imply? 
+\item What is the extended-value extension for concave functions?
+\end{enumerate}
+
+\subsubsection*{First-Order Condition}
+\begin{enumerate}[resume*]
+\item What is the first-order condition for convexity?
+\item How does the first-order approximation of $f$ relate to $f$?
+\item What does this imply about the relationship between the gradient evaluated at any point and the global bound(s) of $f$ (consider when $f$ is convex and when $f$ is strictly convex)?
+\item What does this imply about the number and types of global bound(s) (consider when $f$ is convex and when $f$ is strictly convex)?
+\end{enumerate}
+
+\subsubsection*{Second-Order Condition}
+\begin{enumerate}[resume*]
+\item What is the second-order condition for convexity?
+\item What is a sufficient condition wrt the Hessian of a function $f$ for strict convexity? Is this also a necessary condition? Show or give counterexample.
+\end{enumerate}
+
+
 
 
 \end{document}
